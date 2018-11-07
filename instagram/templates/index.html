@@ -4,5 +4,18 @@
 {{block.super}}
 
 <h1>Instagram app</h1>
+{% for photo in photos %}
+
+  <div class="row">
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <a href="{% url 'imagedetails' photo.id %}">  <img src="{{photo.image.url}}" class="img-responsive" alt="Image"></a>
+    </div>
+
+    {% empty %}
+  <div class="row">
+    <h2 class="text-center">There are no photos yet</h2>
+  </div>
+  {% endfor %}
+  </div>
 
 {% endblock %}
