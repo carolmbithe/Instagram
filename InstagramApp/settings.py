@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'instagram.apps.InstagramConfig',
     'bootstrap3',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,6 +85,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'InstagramApp.wsgi.application'
 
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
