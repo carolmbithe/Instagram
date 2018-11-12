@@ -4,6 +4,7 @@
 {{block.super}}
 
 
+
 {% for photo in photos %}
 <div class="container">
 
@@ -11,9 +12,17 @@
       <div class="col-md-6">
         <div class="panel panel-default">
       <div class="panel panel-header">
-    <p>{{photo.profile}}</p>
-  </div>
+        <!-- <img src="{{profile.profile_photo.url}}" class="radius" class="img-responsive" alt="Image" style="width:50px;height:60px;> -->
+  <p>{{profile.user}}</p>
+
+        <style>
+        img.radius {
+        border-radius: 04%;
+        }
+        </style>
+    </div>
       <div class="panel panel-body">
+
       <a href="{% url 'imagedetails' photo.id %}">  <img src="{{photo.image.url}}" class="img-responsive" alt="Image"></a>
 
 
