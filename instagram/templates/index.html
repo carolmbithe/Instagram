@@ -4,12 +4,21 @@
 {{block.super}}
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-{% for photo in photos %}
+
 <div class="container">
-
+<body style="background-color:#F2F3F4">
     <div class="row">
-      <div class="col-md-6">
+      {% for photo in photos %}
+
+      <div class="col-md-8">
         <div class="panel panel-default">
       <div class="panel panel-header">
         <!-- <img src="{{profile.profile_photo.url}}" class="radius" class="img-responsive" alt="Image" style="width:50px;height:60px;> -->
@@ -46,6 +55,7 @@
     </div>
 
     </div>
+
   </div>
 
     {% empty %}
@@ -53,6 +63,7 @@
     <h2 class="text-center">There are no photos yet</h2>
   </div>
   {% endfor %}
+</body>
   </div>
 
 {% endblock %}
