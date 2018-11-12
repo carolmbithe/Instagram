@@ -3,30 +3,41 @@
 {% block content %}
 {{block.super}}
 
-<h1>Instagram app</h1>
+
 {% for photo in photos %}
 <div class="container">
 
-  <div class="row">
-<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-  <div class ="panel panel-default" >
-
-  </div class="panel panel-header">  <p>{{photo.profile}}</p></div>
-  <div class="panel panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+      <div class="panel panel-header">
+    <p>{{photo.profile}}</p>
+  </div>
+      <div class="panel panel-body">
       <a href="{% url 'imagedetails' photo.id %}">  <img src="{{photo.image.url}}" class="img-responsive" alt="Image"></a>
 
-        <p>{{photo.caption}}</p>
-      </div>
+
+      <h4 class="btn btn-lg"><i class="glyphicon glyphicon-heart-empty" style="font-size:24px;color:black;"></i></h4>{{photo.likes}}
+          <a href="/comment-photo"> <h4 class="btn btn-lg" ><i class="glyphicon glyphicon-comment" style="font-size:24px;color:black;"></i> </h4> </a>{{photo.comments}}
+
+          <br>
+
+      <p>{{photo.caption}}</p>
+
+
+    </div>
       <div class="panel panel-footer">
 
-        <p> {{photo.likes}} Likes</p>
+
         <p>{{photo.comments}}</p>
-        <a href="#">View comments</a>
+        <a href="#">Add a comment</a>
+
       </div>
 
     </div>
-      </div>
+
     </div>
+  </div>
 
     {% empty %}
   <div class="row">
