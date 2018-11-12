@@ -27,12 +27,12 @@ class Profile(models.Model):
         instagram=cls.objects.filter(user__username=search_term)
         return instagram
 
-# class Comment(models.Model):
-#     image = models.ForeignKey(Image,blank=True, on_delete=models.CASCADE,related_name='comment')
-#     commenter=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-#     comment=models.TextField(max_length =30)
-#
-#
+class Comment(models.Model):
+    image = models.ForeignKey(Image,blank=True, on_delete=models.CASCADE,related_name='comment')
+    commenter=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    comment=models.TextField(max_length =30)
+
+
     @classmethod
     def get_comments(cls):
         comments=cls.objects.filter()
