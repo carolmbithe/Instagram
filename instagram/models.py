@@ -17,6 +17,38 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()
 
+    @classmethod
+    def get_profile_by_id(cls,image_id):
+        profile=cls.objects.get(id=profile_id)
+        return profile
+
+    @classmethod
+    def search_by_user(cls,search_term):
+        instagram=cls.objects.filter(user__username=search_term)
+        return instagram
+
+# class Comment(models.Model):
+#     image = models.ForeignKey(Image,blank=True, on_delete=models.CASCADE,related_name='comment')
+#     commenter=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+#     comment=models.TextField(max_length =30)
+# 
+#
+#     @classmethod
+#     def get_comments(cls):
+#         comments=cls.objects.filter()
+#         return comments
+
+class Like(models.Model):
+
+    image=models.ImageField(upload_to ='images/', blank = True)
+    name=models.CharField(max_length =30)
+    caption=models.TextField(blank=True,null=True)
+
+    @classmethod
+    def get_likes(cls):
+        photos=cls.objects.all()
+        return photos
+
 class Image(models.Model):
     image=models.ImageField(upload_to ='images/', blank = True)
     name=models.CharField(max_length =30)
@@ -24,7 +56,7 @@ class Image(models.Model):
     profile=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     pub_date=models.DateTimeField(auto_now_add=True)
     likes=models.IntegerField(blank=True,null=True)
-    comments=models.TextField(blank=True,null=True)
+    comments=models.ForeignKey(Comment)
 
     def save_image(self):
         self.save()
