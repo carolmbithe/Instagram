@@ -6,17 +6,26 @@
 
 
 <div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
   <h1>Profile</h1>
 
   <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <img src="{{profile.profile_photo.url}}" class="img-responsive" alt="Image">
-    <p>{{profile.user}}</p>
+    <p>{{profile.bio}}</p>
+
 
   </div>
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <p>{{profile.bio}}</p>
-    <p><a href="{% url 'create-profile' %}"><button type="button" class="btn btn-light">Edit profile</button></a></p>
+    <p>{{profile.user}}</p>
+    <p><a href="#"><button type="button" class="btn btn-light">Follow</button></a></p>
+
+    <!-- <p><a href="{% url 'create-profile' %}"><button type="button" class="btn btn-light">Edit profile</button></a></p> -->
 
 
   </div>
