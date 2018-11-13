@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 
+
 {% block content %}
 {{block.super}}
 
@@ -12,27 +13,24 @@
 <br>
 <br>
 
-
 <div class="container">
+
 <body style="background-color:#F2F3F4">
     <div class="row">
+
       {% for photo in photos %}
 
       <div class="col-md-8">
         <div class="panel panel-default">
       <div class="panel panel-header">
-        <!-- <img src="{{profile.profile_photo.url}}" class="radius" class="img-responsive" alt="Image" style="width:50px;height:60px;> -->
-  <p>{{profile.user}}</p>
+      <p>  <img src="{{profile.profile_photo.url}}" class="radius" class="img-responsive" alt="Image" style="border-radius: 90% ; padding: 0.15rem;  width: 70px; background: linear-gradient(to right bottom, #d82c66, #c92e3b, #e15e43, #f3813f, #ffa63e);">
+  <strong>{{photo.profile}}</strong></p>
 
-        <style>
-        img.radius {
-        border-radius: 04%;
-        }
-        </style>
+
     </div>
       <div class="panel panel-body">
 
-      <a href="{% url 'imagedetails' photo.id %}">  <img src="{{photo.image.url}}" class="img-responsive" alt="Image" style="width:800px;height:800px;></a>
+      <a href="{% url 'imagedetails' photo.id %}">  <img src="{{photo.image.url}}" class="img-responsive" alt="Image" style="width:800px;height:800px;"></a>
 
 
       <h4 class="btn btn-lg"><i class="glyphicon glyphicon-heart-empty" style="font-size:24px;color:black;"></i></h4>{{photo.likes}}
@@ -56,14 +54,16 @@
 
     </div>
 
-  </div>
 
-    {% empty %}
-  <div class="row">
-    <h2 class="text-center">There are no photos yet</h2>
-  </div>
+
+  {% empty %}
+  <h2 class="text-center">There are no photos yet</h2>
+
   {% endfor %}
+</div>
+
 </body>
-  </div>
+</div>
+
 
 {% endblock %}

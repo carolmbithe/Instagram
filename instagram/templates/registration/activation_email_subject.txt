@@ -1,4 +1,1 @@
-activation key
-expiration days
-user
-site  eg django.contrib.sites
+Instagram Account Activation: {{user}}

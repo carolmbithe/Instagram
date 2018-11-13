@@ -8,9 +8,11 @@
 <br>
 <br>
 <br>
+<br>
+<br>
 <div class="container">
-  <body style="background-color:#E6E6FA">
-  <h1>Profile</h1>
+  <body style="background-color:#FCFDFE">
+
 
   <div class="row">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -19,7 +21,7 @@
       border-radius: 70%;
       }
       </style>
-          <img src="{{profile.profile_photo.url}}" class="radius" class="img-responsive" alt="Image">
+          <img src="{{profile.profile_photo.url}}" class="radius" class="img-responsive" alt="Image" style="width:200px;height:200px;">
     <br>
     <br>
     <p>{{profile.bio}}</p>
@@ -27,7 +29,6 @@
   </div>
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     <p>{{profile.user}}</p>
-    <p><a href="{%url 'new-image'%}"><button type="button" class="btn btn-light">upload a pictture</button></a></p>
 
 
 
@@ -36,21 +37,21 @@
 <br>
 
   <div class="row">
-    <p><strong>Your posts</strong></p>
+  <p class="text-center"><strong>Your posts</strong></p>
 
     {% for photo in photos %}
 
-<div class="col-xs- col-sm-3 col-md-3 col-lg-3">
+    <div class="col-md-4">
 
       <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
 
       </div>
-    </div>
+
 
     {% empty %}
-  <div class="row">
     <h2 class="text-center">There are no photos yet</h2>
+
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
 {% endblock %}
