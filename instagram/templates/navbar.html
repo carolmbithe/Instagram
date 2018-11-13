@@ -106,7 +106,6 @@
           {% if user.is_authenticated %}
 
           <a  class="navbar-brand" href="{% url 'profile' %}"><i class="far fa-user" style="font-size:24px;color:black;"></i></a>
-          <a  class="navbar-brand" data-toggle="modal" data-target="#settings" aria-hidden="true" ><i class="fa fa-th"  style="font-size:24px;color:black;"></i></a>
           <a class="navbar-brand" href="{%url 'new-image'%}"> <span class="glyphicon glyphicon-upload" style="color:black;"></span> </a>
 
 
@@ -124,19 +123,6 @@
 
     </nav>
   </div>
-      <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <ul class="list-group">
-                    <li class="list-group-item text-center"><a href="/accounts/password/change">Change Password</a></li>
-                    <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
-                    <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
-                    <li class="list-group-item text-center"><a href="/admin">Admin</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-     </div>
+      
 </body>
 </html>

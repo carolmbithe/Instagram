@@ -18,9 +18,10 @@
 <body style="background-color:#F2F3F4">
     <div class="row">
 
-      {% for photo in photos %}
-
+  {% for photo in photos %}
       <div class="col-md-8">
+
+
         <div class="panel panel-default">
       <div class="panel panel-header">
       <p>  <img src="{{profile.profile_photo.url}}" class="radius" class="img-responsive" alt="Image" style="border-radius: 90% ; padding: 0.15rem;  width: 70px; background: linear-gradient(to right bottom, #d82c66, #c92e3b, #e15e43, #f3813f, #ffa63e);">
@@ -60,10 +61,13 @@
   <h2 class="text-center">There are no photos yet</h2>
 
   {% endfor %}
+
+
+
+
 </div>
 
 </body>
 </div>
-
 
 {% endblock %}
