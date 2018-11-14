@@ -8,10 +8,10 @@ from .forms import NewImageForm,NewProfileForm
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def index(request):
-    current_user=request.user
+    # current_user=request.user
 
     photos=Image.get_photos()
-    profile = Profile.objects.get(user=current_user)
+    # profile = Profile.objects.get(user=current_user)
 
     return render(request,'index.html',{"photos":photos,"profile":profile})
 
