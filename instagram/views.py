@@ -12,7 +12,7 @@ def index(request):
 
     photos=Image.get_photos()
     comments=Comment.get_comments()
-    profile = Profile.objects.get(user=current_user)
+    # profile = Profile.objects.get(user=current_user)
     profiles = Profile.objects.all()
 
 
