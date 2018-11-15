@@ -25,7 +25,19 @@
      {{image.caption| safe}}
     {% endautoescape %}
     <br>
-    {{image.comments}}
+
+    <strong>Comments</strong>
+
+    {% for comment in comments %}
+
+    <ul>
+
+    <p><li>{{comment.comment}}</p></li>
+
+  </ul>
+
+
+    {% endfor %}
     <br>
    <h4 class="btn btn-lg"><i class="glyphicon glyphicon-heart-empty" style="font-size:24px;color:black;"></i></h4>  {{image.likes}}
 

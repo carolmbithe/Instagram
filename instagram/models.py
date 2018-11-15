@@ -45,7 +45,7 @@ class Image(models.Model):
     name=models.CharField(max_length =30)
     caption=models.TextField(blank=True,null=True)
     profile=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    pub_date=models.DateTimeField(auto_now_add=True)
+    pub_date=models.DateTimeField(auto_now_add=True,blank=True,null=True)
     likes=models.IntegerField(blank=True,null=True)
     # comments=models.ForeignKey(Comment)
 
@@ -67,11 +67,22 @@ class Image(models.Model):
 
 
 class Comment(models.Model):
-    image = models.ForeignKey(Image,blank=True, on_delete=models.CASCADE,related_name='comment')
+    image = models.ForeignKey(Image,blank=True, on_delete=models.CASCADE,null=True,related_name='comment')
     commenter=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     comment=models.TextField(max_length =30)
 
+    def delete_comment(self):
+        self.delete()
+
+    def save_comment(self):
+        self.save()
+
     @classmethod
-    def get_comments(cls,image_id):
+    def get_comments(cls):
+        comments=cls.objects.all()
+        return comments
+
+    @classmethod
+    def get_comments_by_image_id(cls,image_id):
         comments=cls.objects.filter(id=image_id)
         return comments

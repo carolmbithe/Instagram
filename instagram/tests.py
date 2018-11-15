@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Profile,Image
+from .models import Profile,Image,Comment
 import datetime as dt
 
 
@@ -27,4 +27,44 @@ class ImageTestClass(TestCase):
 
 
     def setUp(self):
-        self.new_image=Image()
+        self.new_image=Image(image="image.jpeg",name="Flower",caption="Naturelover",pub_date="two minutes ago",likes=4)
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_image,Image))
+
+
+    def test_save_method(self):
+        '''
+        Function that tests whether an image is saved to database
+        '''
+        self.new_image.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)
+
+    def test_delete_method(self):
+        '''
+        Function that tests whether an image can be deleted from the database
+        '''
+        self.new_image.save_image()
+        self.new_image.delete_image()
+
+
+# class CommentTestClass(TestCase):
+#     #Set up method
+#     def setUp(self):
+#         self.new_comment =Comment(comment="Beautiful")
+#
+#
+#     # Testing  instance
+#     def test_instance(self):
+#         self.assertTrue(isinstance(self.new_comment,Comment))
+#
+#     #Testing Save Method
+#     def test_save_method(self):
+#         self.new_comment.save_comment()
+#         comments=Comment.objects.all()
+#         self.assertTrue(len()>0)
+#
+#     def test_delete_method(self):
+#         self.new_comment.save_comment()
+#         self.new_comment.delete_comment()

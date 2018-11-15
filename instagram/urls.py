@@ -8,6 +8,8 @@ urlpatterns=[
 url('^$',views.index,name='index'),
 url(r'^imagedetails/(\d+)',views.imagedetails,name ='imagedetails'),
 url(r'^new/image$',views.new_image,name='new-image'),
+url(r'^new/comment$',views.new_comment,name='new-comment'),
+
 url(r'^create/profile$',views.create_profile,name='create-profile'),
 url(r'^profile/',views.profile,name='profile'),
 url(r'^profiledetails/(\d+)',views.profiledetails,name ='profiledetails'),
