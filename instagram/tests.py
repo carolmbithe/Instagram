@@ -23,6 +23,15 @@ class ProfileTestClass(TestCase):
         self.new_profile.save_profile()
         self.new_profile.delete_profile()
 
+    def test_update_bio(self):
+        self.new_profile.save_profile()
+        self.new_profile = Profile.objects.get(id=1)
+        profile = self.new_profile
+        profile.update_bio('changed user bio')
+        self.updated_profile = Profile.objects.get(id=1)
+        self.assertEqual(self.updated_profile.bio,'changed user bio')
+
+
 class ImageTestClass(TestCase):
 
 
@@ -48,23 +57,9 @@ class ImageTestClass(TestCase):
         self.new_image.save_image()
         self.new_image.delete_image()
 
-
-# class CommentTestClass(TestCase):
-#     #Set up method
-#     def setUp(self):
-#         self.new_comment =Comment(comment="Beautiful")
-#
-#
-#     # Testing  instance
-#     def test_instance(self):
-#         self.assertTrue(isinstance(self.new_comment,Comment))
-#
-#     #Testing Save Method
-#     def test_save_method(self):
-#         self.new_comment.save_comment()
-#         comments=Comment.objects.all()
-#         self.assertTrue(len()>0)
-#
-#     def test_delete_method(self):
-#         self.new_comment.save_comment()
-#         self.new_comment.delete_comment()
+    def test_update_caption(self):
+        self.new_image.save_image()
+        self.new_image = Image.objects.get(id = 27 )
+        self.new_image.update_caption('changed Image caption')
+        self.updated_image = Image.objects.get(id = 27)
+        self.assertEqual(self.updated_image.caption,"changed Image caption")
