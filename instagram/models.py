@@ -1,4 +1,4 @@
-from django.db import models
+from django.db.models import Q
 import datetime as dt
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
@@ -11,6 +11,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User,null = True,on_delete=models.CASCADE,related_name = "profile")
     profile_photo=models.ImageField(upload_to='profiles',blank=True)
     bio=models.TextField()
+
+    def __str__(self):
+        return self.user
 
     def save_profile(self):
         self.save()
@@ -41,8 +44,8 @@ class Image(models.Model):
     likes=models.IntegerField(blank=True,null=True)
     # comments=models.ForeignKey(Comment)
 
-    def __str__(self):
-        return self.name
+    # def __str__(self):
+    #     return self.name
 
     def save_image(self):
         self.save()
